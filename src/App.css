@@ -2,14 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,15 +13,23 @@
   color: white;
 }
 
+.App-main {
+  background-color: pink;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. Some of this code is based on the examples
+* from the Google Support site. */
+#map {
+  background-color: white;
+  height: 100%;
 }
