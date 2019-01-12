@@ -6,38 +6,53 @@ import Map from './Map';
 // Some of this code has been copied from the Google Maps support site.
 class App extends Component {
   state = {
-    markers : [
+    places : [
       {
         name: 'La Taguara Areperia',
         lat: 41.386380,
-        lng: 2.182107
+        lng: 2.182107,
+        category: 'gf-restaurant'
       },
       {
         name: 'Koku Kitchen Buns',
         lat: 41.385225,
-        lng: 2.184566
+        lng: 2.184566,
+        category: 'gf-restaurant'
       },
       {
         name: 'Alsur Cafe and Backdoor Bar',
-        lat: 41.385886,
-        lng: 2.185207
+        lat: 41.385757,
+        lng: 2.185203,
+        category: 'gf-restaurant'
+      },
+      {
+        name: 'El Born Centre Cultural',
+        lat: 41.385849,
+        lng: 2.183813,
+        category: 'culture'
+      },
+      {
+        name: 'Museu Picasso de Barcelona',
+        lat: 41.385240,
+        lng: 2.180892,
+        category: 'culture'
       }
-    ]
+    ],
+    markers : []
   }
 
-  createMarkers(map, filter) {
-    let markers;
-    if(filter === 'all') {
-      // Create all markers
-      markers = this.state.markers;
-    }
-    markers.map((mrk) => {
-      return new window.google.maps.Marker({
+  // This function creates one marker for each place in the state.
+  createMarkers(map) {
+    let places = this.state.places;
+    let markers = places.map((mrk) => (
+      new window.google.maps.Marker({
         position: { lat: mrk.lat, lng: mrk.lng },
         map: map,
         title: mrk.name
       })
-    });
+    ));
+    // Update the list of markers in the state
+    this.setState({ markers: markers})
   }
 
   render() {
@@ -54,10 +69,8 @@ class App extends Component {
             zoom: 16
           }}
           onMapLoad={map => {
-            // TODO: here I should call a function that creates
-            // all the markers (a list of places). I should pass the reference
-            // to the map and the filter.
-            this.createMarkers(map, 'all');
+            // Create all the markers in the map
+            this.createMarkers(map);
           }} />
         </main>
       </div>
