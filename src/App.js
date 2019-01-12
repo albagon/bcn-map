@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Map from './Map';
+import Map from './Map.js';
+import PlacesPanel from './PlacesPanel.js';
 
 
 // Some of this code has been copied from the Google Maps support site.
@@ -55,9 +56,16 @@ class App extends Component {
     this.setState({ markers: markers})
   }
 
+  clearMarkers(){}
+  showMarkers(){}
+  deleteMarkers(){}
+
   render() {
     return (
       <div className="App">
+        <PlacesPanel onClearMarkers={this.clearMarkers}
+                     onShowMarkers={this.showMarkers}
+                     onDeleteMarkers={this.deleteMarkers} />
         <header className="App-header">
           Barcelona Map
         </header>
