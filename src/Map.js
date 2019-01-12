@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
+// Some of this code has been copied from the Google Maps support site.
 class Map extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class Map extends Component {
       var x = document.getElementsByTagName('script')[0];
       x.parentNode.insertBefore(s, x);
       // Below is important.
-      //We cannot access google.maps until it's finished loading
+      // We cannot access google.maps until it's finished loading
       s.addEventListener('load', e => {
         this.onScriptLoad()
       })
