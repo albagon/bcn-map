@@ -44,9 +44,10 @@
   padding: 10px;
   border: 1px solid #999;
   text-align: center;
-  font-family: 'Roboto','sans-serif';
   line-height: 30px;
 }
+
+#floating-panel p {}
 
 .panel-title {
 
@@ -62,5 +63,6 @@
 
 /* Styles for the Place*/
 .place {}
-.place-title {}
-.place-category {}
+.place:hover {
+  cursor: pointer;
+}

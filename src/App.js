@@ -108,7 +108,12 @@ class App extends Component {
     // Find the marker that should be animated
     for (var i = 0; i < this.state.markers.length; i++) {
       if (this.state.markers[i].title === event.target.title) {
-        this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE);
+        //this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE);
+        window.setTimeout(
+          this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE)
+        , 300);
+        // End the animation
+        this.state.markers[i].setAnimation(null);
       }
     }
   }
