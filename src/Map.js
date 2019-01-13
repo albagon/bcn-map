@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 
 // Some of this code has been copied from the Google Maps support site.
 class Map extends Component {
@@ -12,6 +11,9 @@ class Map extends Component {
     const map = new window.google.maps.Map(
       document.getElementById(this.props.id),
       this.props.options);
+    // Keep a reference to the map
+    window.myMap = map;
+
     this.props.onMapLoad(map)
   }
 

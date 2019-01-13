@@ -39,24 +39,21 @@ class App extends Component {
         category: 'culture'
       }
     ],
-    markers : [],
-    map : {}
+    markers : []
   }
 
   // This function will update all the markers.
   updateMarkers = (event) => {
-    let newMarkers = this.state.markers.map((marker) => {
+    this.state.markers.map((marker) => {
       if(event.target.value === 'hide') {
         return marker.setMap(null);
       }
-      // else means the value was 'show' and we shouldn't update
-      // the marker's map.
-      // TODO: handle the case when the value is 'show'
-      return marker;
+      // else means the value was 'show' and we should update
+      // the marker with the reference to the map.
+      return marker.setMap(window.myMap);
     })
 
-    // Update the list of markers in the state
-    this.setState({ markers: newMarkers});
+    // Do not render the markers again!!
   }
 
   // This function creates one marker for each place in the state.
