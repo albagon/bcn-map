@@ -3,11 +3,20 @@ import './App.css';
 import Place from './Place.js';
 
 class PlacesPanel extends Component {
+  state = {
+    filter: ''
+  }
+
+  updateFilter = (e) => {
+    this.props.onUpdateMarkers(e);
+    this.setState({ filter: e.target.value})
+  }
+
   render() {
     return (
       <div id="floating-panel">
         <h2 className="panel-title">Places to visit</h2>
-        <select onChange={this.props.onUpdateMarkers}>
+        <select value={this.state.filter} onChange={this.updateFilter}>
               <option value="" defaultValue>Show me...</option>
               <option value="all">All places</option>
               <option value="gf-restaurant">GF Restaurants</option>
