@@ -34,6 +34,7 @@
   height: 100%;
 }
 
+/* Styles for the PlacesPanel*/
 #floating-panel {
   position: absolute;
   top: 10px;
@@ -58,3 +59,8 @@
 .panel-list {
 
 }
+
+/* Styles for the Place*/
+.place {}
+.place-title {}
+.place-category {}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Place from './Place.js';
 
 class PlacesPanel extends Component {
   render() {
@@ -16,9 +17,7 @@ class PlacesPanel extends Component {
  					<ol className="panel-list">
    					{this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
     					<li key={mk.title}>
-      					{/*<Book onMoveBook={this.props.onMoveBook} book={bk}/>*/
-                  mk.title
-                }
+      					{<Place place={mk} />}
     					</li>
     				))}
   				</ol>
