@@ -24,10 +24,10 @@ class PlacesPanel extends Component {
               <option value="architecture">Famous Buildings</option>
         </select>
 				<div className="panel-list-container">
- 					<ol className="panel-list">
+ 					<ol onClick={this.props.onAnimateMarker} className="panel-list">
    					{this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
     					<li key={mk.title}>
-      					{<Place place={mk} />}
+      					{<Place title={mk.title} place={mk} />}
     					</li>
     				))}
   				</ol>

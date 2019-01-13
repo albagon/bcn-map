@@ -104,10 +104,19 @@ class App extends Component {
     this.setState({ markers: markers});
   }
 
+  animateMarker= (event) => {
+    // Find the marker that should be animated
+    for (var i = 0; i < this.state.markers.length; i++) {
+      if (this.state.markers[i].title === event.target.title) {
+        this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE);
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <PlacesPanel onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
+        <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
         <header className="App-header">
           Barcelona Map
         </header>
