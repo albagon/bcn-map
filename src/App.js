@@ -39,7 +39,24 @@ class App extends Component {
         category: 'culture'
       }
     ],
-    markers : []
+    markers : [],
+    map : {}
+  }
+
+  // This function will update all the markers.
+  updateMarkers = (event) => {
+    let newMarkers = this.state.markers.map((marker) => {
+      if(event.target.value === 'hide') {
+        return marker.setMap(null);
+      }
+      // else means the value was 'show' and we shouldn't update
+      // the marker's map.
+      // TODO: handle the case when the value is 'show'
+      return marker;
+    })
+
+    // Update the list of markers in the state
+    this.setState({ markers: newMarkers});
   }
 
   // This function creates one marker for each place in the state.
@@ -53,19 +70,13 @@ class App extends Component {
       })
     ));
     // Update the list of markers in the state
-    this.setState({ markers: markers})
+    this.setState({ markers: markers});
   }
-
-  clearMarkers(){}
-  showMarkers(){}
-  deleteMarkers(){}
 
   render() {
     return (
       <div className="App">
-        <PlacesPanel onClearMarkers={this.clearMarkers}
-                     onShowMarkers={this.showMarkers}
-                     onDeleteMarkers={this.deleteMarkers} />
+        <PlacesPanel onUpdateMarkers={this.updateMarkers} />
         <header className="App-header">
           Barcelona Map
         </header>
