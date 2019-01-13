@@ -7,8 +7,9 @@ class PlacesPanel extends Component {
       <div id="floating-panel">
         <select onChange={this.props.onUpdateMarkers}>
               <option value="filter" disabled defaultValue>Show me...</option>
-              <option value="show">Show all markers</option>
-              <option value="hide">Hide all markers</option>
+              <option value="all">Show all places</option>
+              <option value="gf-restaurant">Show GF restaurants</option>
+              <option value="culture">Show Cultural Centres</option>
         </select>
       </div>
     )

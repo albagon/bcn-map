@@ -44,14 +44,22 @@ class App extends Component {
 
   // This function will update all the markers.
   updateMarkers = (event) => {
-    this.state.markers.map((marker) => {
-      if(event.target.value === 'hide') {
-        return marker.setMap(null);
+    if(event.target.value === 'all') {
+      // The user wants to see all the places/markers
+      for (let i = 0; i < this.state.markers.length; i++) {
+        this.state.markers[i].setMap(window.myMap);
       }
-      // else means the value was 'show' and we should update
-      // the marker with the reference to the map.
-      return marker.setMap(window.myMap);
-    })
+    } else {
+      // The user wants to filter the list of places/markers
+      for (let i = 0; i < this.state.markers.length; i++) {
+        if(this.state.markers[i].category !== event.target.value) {
+          // The user wants to hide this marker
+          this.state.markers[i].setMap(null);
+        } else {
+          this.state.markers[i].setMap(window.myMap);
+        }
+      }
+    }
 
     // Do not render the markers again!!
   }
@@ -62,6 +70,7 @@ class App extends Component {
     let markers = places.map((mrk) => (
       new window.google.maps.Marker({
         position: { lat: mrk.lat, lng: mrk.lng },
+        category: mrk.category,
         map: map,
         title: mrk.name
       })
