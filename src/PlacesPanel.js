@@ -8,10 +8,11 @@ class PlacesPanel extends Component {
       <div id="floating-panel">
         <h2 className="panel-title">Places to visit</h2>
         <select onChange={this.props.onUpdateMarkers}>
-              <option value="filter" disabled defaultValue>Show me...</option>
-              <option value="all">Show all places</option>
-              <option value="gf-restaurant">Show GF restaurants</option>
-              <option value="culture">Show Cultural Centres</option>
+              <option value="" defaultValue>Show me...</option>
+              <option value="all">All places</option>
+              <option value="gf-restaurant">GF Restaurants</option>
+              <option value="culture">Cultural Centres</option>
+              <option value="architecture">Famous Buildings</option>
         </select>
 				<div className="panel-list-container">
  					<ol className="panel-list">

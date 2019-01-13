@@ -38,6 +38,30 @@ class App extends Component {
         lat: 41.385240,
         lng: 2.180892,
         category: 'culture'
+      },
+      {
+        name: 'Fundación Antoni Tàpies',
+        lat: 41.391556,
+        lng: 2.163764,
+        category: 'culture'
+      },
+      {
+        name: 'La Sagrada Familia',
+        lat: 41.403555,
+        lng: 2.174353,
+        category: 'architecture'
+      },
+      {
+        name: 'Casa Batlló',
+        lat: 41.391638,
+        lng: 2.164775,
+        category: 'architecture'
+      },
+      {
+        name: 'Arc de Triomf',
+        lat: 41.391058,
+        lng: 2.180649,
+        category: 'architecture'
       }
     ],
     markers : []
@@ -91,8 +115,8 @@ class App extends Component {
         <Map
           id="map"
           options={{
-            center: { lat: 41.384457, lng: 2.182452 },
-            zoom: 16
+            center: { lat: 41.394905, lng: 2.175561 },
+            zoom: 15
           }}
           onMapLoad={map => {
             // Create all the markers in the map
