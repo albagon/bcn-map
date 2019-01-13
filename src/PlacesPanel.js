@@ -5,8 +5,11 @@ class PlacesPanel extends Component {
   render() {
     return (
       <div id="floating-panel">
-        <input onClick={this.props.onUpdateMarkers} type="button" value="hide" />
-        <input onClick={this.props.onUpdateMarkers} type="button" value="show" />
+        <select onChange={this.props.onUpdateMarkers}>
+              <option value="filter" disabled defaultValue>Show me...</option>
+              <option value="show">Show all markers</option>
+              <option value="hide">Hide all markers</option>
+        </select>
       </div>
     )
   }
