@@ -4,7 +4,8 @@ import Map from './Map.js';
 import PlacesPanel from './PlacesPanel.js';
 
 
-// Some of this code has been copied from the Google Maps support site.
+// Some of this code has been inspired by the Google Maps support site
+// and stackoverflow.com
 class App extends Component {
   state = {
     places : [
@@ -82,7 +83,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PlacesPanel onUpdateMarkers={this.updateMarkers} />
+        <PlacesPanel onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
         <header className="App-header">
           Barcelona Map
         </header>

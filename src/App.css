@@ -40,10 +40,21 @@
   left: 10px;
   z-index: 5;
   background-color: #fff;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #999;
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
-  padding-left: 10px;
+}
+
+.panel-title {
+
+}
+
+.panel-list-container {
+  text-align: left;
+}
+
+.panel-list {
+
 }
