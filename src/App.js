@@ -104,6 +104,26 @@ class App extends Component {
     this.setState({ markers: markers});
   }
 
+  // This function adds one infoWindow to each marker in the array.
+  // The content of the infoWindow is the title of the marker.
+  createInfoWindows= (map) => {
+    let markers = this.state.markers;
+
+    for (let i = 0; i < markers.length; i++) {
+      let contentString = '<div id="content">'+
+          '<p>'+markers[i].title+'</p>'+
+          '</div>';
+
+      let infowindow = new window.google.maps.InfoWindow({
+        content: contentString
+      });
+
+      markers[i].addListener('click', function() {
+        infowindow.open(map, markers[i]);
+      });
+    }
+  }
+
   animateMarker= (event) => {
     // Find the marker that should be animated
     for (var i = 0; i < this.state.markers.length; i++) {
@@ -135,6 +155,7 @@ class App extends Component {
           onMapLoad={map => {
             // Create all the markers in the map
             this.createMarkers(map);
+            this.createInfoWindows(map);
           }} />
         </main>
       </div>
