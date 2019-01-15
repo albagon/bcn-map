@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as AppAPI from './AppAPI'
 import './App.css';
 import Map from './Map.js';
 import PlacesPanel from './PlacesPanel.js';
@@ -8,63 +9,8 @@ import PlacesPanel from './PlacesPanel.js';
 // and stackoverflow.com
 class App extends Component {
   state = {
-    places : [
-      {
-        name: 'La Taguara Areperia',
-        lat: 41.386380,
-        lng: 2.182107,
-        category: 'gf-restaurant'
-      },
-      {
-        name: 'Koku Kitchen Buns',
-        lat: 41.385225,
-        lng: 2.184566,
-        category: 'gf-restaurant'
-      },
-      {
-        name: 'Alsur Cafe and Backdoor Bar',
-        lat: 41.385757,
-        lng: 2.185203,
-        category: 'gf-restaurant'
-      },
-      {
-        name: 'El Born Centre Cultural',
-        lat: 41.385849,
-        lng: 2.183813,
-        category: 'culture'
-      },
-      {
-        name: 'Museu Picasso de Barcelona',
-        lat: 41.385240,
-        lng: 2.180892,
-        category: 'culture'
-      },
-      {
-        name: 'Fundació Antoni Tàpies',
-        lat: 41.391556,
-        lng: 2.163764,
-        category: 'culture'
-      },
-      {
-        name: 'La Sagrada Familia',
-        lat: 41.403555,
-        lng: 2.174353,
-        category: 'architecture'
-      },
-      {
-        name: 'Casa Batlló',
-        lat: 41.391638,
-        lng: 2.164775,
-        category: 'architecture'
-      },
-      {
-        name: 'Arc de Triomf',
-        lat: 41.391058,
-        lng: 2.180649,
-        category: 'architecture'
-      }
-    ],
-    markers : []
+    markers : [],
+    response : {}
   }
 
   // This function will update all the markers.
@@ -91,13 +37,14 @@ class App extends Component {
 
   // This function creates one marker for each place in the state.
   createMarkers(map) {
-    let places = this.state.places;
-    let markers = places.map((mrk) => (
+    let venues = this.state.response.venues;
+    console.log('inside markers the 1st venue is '+this.state.response.venues[0].name);
+    let markers = venues.map((v) => (
       new window.google.maps.Marker({
-        position: { lat: mrk.lat, lng: mrk.lng },
-        category: mrk.category,
+        position: { lat: v.location.lat, lng: v.location.lng },
+        category: v.categories[0].name,
         map: map,
-        title: mrk.name
+        title: v.name
       })
     ));
     // Update the list of markers in the state
@@ -142,6 +89,25 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    AppAPI.getAll().then((response) => {
+      //TODO: erase this console.log after testing
+      console.log('1 the venues are '+response.venues[0].categories[0].name);
+      console.log('1 the venues are '+response.venues[1].categories[0].name);
+      console.log('1 the venues are '+response.venues[2].categories[0].name);
+      console.log('1 the venues are '+response.venues[3].categories[0].name);
+      console.log('1 the venues are '+response.venues[4].categories[0].name);
+      console.log('1 the venues are '+response.venues[5].categories[0].name);
+      console.log('1 the venues are '+response.venues[6].categories[0].name);
+      console.log('1 the venues are '+response.venues[7].categories[0].name);
+      console.log('1 the venues are '+response.venues[8].categories[0].name);
+      console.log('1 the venues are '+response.venues[9].categories[0].name);
+      this.setState({ response });
+      this.createMarkers(window.myMap);
+      this.createInfoWindows(window.myMap);
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -153,13 +119,13 @@ class App extends Component {
         <Map
           id="map"
           options={{
-            center: { lat: 41.394905, lng: 2.175561 },
-            zoom: 15
+            center: { lat: 41.384457, lng: 2.182452 },
+            zoom: 17
           }}
           onMapLoad={map => {
             // Create all the markers in the map
-            this.createMarkers(map);
-            this.createInfoWindows(map);
+            //this.createMarkers(map);
+            //this.createInfoWindows(map);
           }} />
           {/* TODO: Here I should insert one InfoWindow component for each marker.
             That means using the map method for this.state.markers or using a for.
