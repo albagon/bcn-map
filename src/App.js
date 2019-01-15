@@ -40,7 +40,7 @@ class App extends Component {
         category: 'culture'
       },
       {
-        name: 'Fundación Antoni Tàpies',
+        name: 'Fundació Antoni Tàpies',
         lat: 41.391556,
         lng: 2.163764,
         category: 'culture'
@@ -106,6 +106,8 @@ class App extends Component {
 
   // This function adds one infoWindow to each marker in the array.
   // The content of the infoWindow is the title of the marker.
+  // TODO: Create an InfoWindow component that receives the following props:
+  // map and markers
   createInfoWindows= (map) => {
     let markers = this.state.markers;
 
@@ -118,6 +120,8 @@ class App extends Component {
         content: contentString
       });
 
+      // TODO: Maybe make an array of infowindows.
+      // infowindows.push(infowindow);
       markers[i].addListener('click', function() {
         infowindow.open(map, markers[i]);
       });
@@ -157,6 +161,13 @@ class App extends Component {
             this.createMarkers(map);
             this.createInfoWindows(map);
           }} />
+          {/* TODO: Here I should insert one InfoWindow component for each marker.
+            That means using the map method for this.state.markers or using a for.
+            Each InfoWindow component will do what createInfoWindows method
+            does (create the content, create the infoWindow and add it to
+            the marker). The content of each infoWindow will be the result of
+            calling a third party API, for example Foursquare.
+            */}
         </main>
       </div>
     );

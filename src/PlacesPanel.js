@@ -16,10 +16,10 @@ class PlacesPanel extends Component {
     return (
       <div id="floating-panel">
         <h2 className="panel-title">Places to visit</h2>
-        <p>Show me...</p>
+        <p>Filter:</p>
         <select value={this.state.filter} onChange={this.updateFilter}>
               <option value="all" defaultValue>All places</option>
-              <option value="gf-restaurant">GF Restaurants</option>
+              <option value="gf-restaurant">Gluten-Free Restaurants</option>
               <option value="culture">Cultural Centres</option>
               <option value="architecture">Famous Buildings</option>
         </select>
