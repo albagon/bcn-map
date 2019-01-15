@@ -10,7 +10,8 @@ import PlacesPanel from './PlacesPanel.js';
 class App extends Component {
   state = {
     markers : [],
-    response : {}
+    response : {},
+    infoWindows : []
   }
 
   // This function will update all the markers.
@@ -56,6 +57,7 @@ class App extends Component {
   // map and markers
   createInfoWindows= (map) => {
     let markers = this.state.markers;
+    let infoWindows = [];
 
     for (let i = 0; i < markers.length; i++) {
       let contentString = '<div id="content">'+
@@ -71,28 +73,33 @@ class App extends Component {
       markers[i].addListener('click', function() {
         infowindow.open(map, markers[i]);
       });
+
+      infoWindows.push(infowindow);
     }
+    return infoWindows;
   }
 
   animateMarker= (event) => {
     // Find the marker that should be animated
     for (var i = 0; i < this.state.markers.length; i++) {
       if (this.state.markers[i].title === event.target.title) {
-        //this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE);
         window.setTimeout(
           this.state.markers[i].setAnimation(window.google.maps.Animation.BOUNCE)
         , 300);
         // End the animation
         this.state.markers[i].setAnimation(null);
+        this.state.infoWindows[i].open(window.myMap, this.state.markers[i]);
       }
     }
   }
 
   componentDidMount() {
     AppAPI.getAll().then((response) => {
+      // Important: We need to set the state before calling createMarkers
       this.setState({ response });
       this.createMarkers(window.myMap);
-      this.createInfoWindows(window.myMap);
+      let infoWindows = this.createInfoWindows(window.myMap);
+      this.setState({ infoWindows });
     })
   }
 
