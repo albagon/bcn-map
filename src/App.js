@@ -38,14 +38,13 @@ class App extends Component {
   // This function creates one marker for each place in the state.
   createMarkers(map) {
     let venues = this.state.response.venues;
-    console.log('inside markers the 1st venue is '+this.state.response.venues[0].name);
     let markers = venues.map((v) => (
-      new window.google.maps.Marker({
-        position: { lat: v.location.lat, lng: v.location.lng },
-        category: v.categories[0].name,
-        map: map,
-        title: v.name
-      })
+          new window.google.maps.Marker({
+          position: { lat: v.location.lat, lng: v.location.lng },
+          category: v.categories[0].name,
+          map: map,
+          title: v.name
+        })
     ));
     // Update the list of markers in the state
     this.setState({ markers: markers});
@@ -91,17 +90,6 @@ class App extends Component {
 
   componentDidMount() {
     AppAPI.getAll().then((response) => {
-      //TODO: erase this console.log after testing
-      console.log('1 the venues are '+response.venues[0].categories[0].name);
-      console.log('1 the venues are '+response.venues[1].categories[0].name);
-      console.log('1 the venues are '+response.venues[2].categories[0].name);
-      console.log('1 the venues are '+response.venues[3].categories[0].name);
-      console.log('1 the venues are '+response.venues[4].categories[0].name);
-      console.log('1 the venues are '+response.venues[5].categories[0].name);
-      console.log('1 the venues are '+response.venues[6].categories[0].name);
-      console.log('1 the venues are '+response.venues[7].categories[0].name);
-      console.log('1 the venues are '+response.venues[8].categories[0].name);
-      console.log('1 the venues are '+response.venues[9].categories[0].name);
       this.setState({ response });
       this.createMarkers(window.myMap);
       this.createInfoWindows(window.myMap);

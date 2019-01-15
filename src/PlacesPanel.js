@@ -19,9 +19,12 @@ class PlacesPanel extends Component {
         <p>Filter:</p>
         <select value={this.state.filter} onChange={this.updateFilter}>
               <option value="all" defaultValue>All places</option>
+              <option value="Art Museum">Art Museum</option>
+              <option value="Bakery">Bakery</option>
               <option value="Bed & Breakfast">Bed & Breakfast</option>
-              <option value="Coffee Shop">Coffee Shops</option>
-              <option value="Museum">Museums</option>
+              <option value="Cafeteria">Cafeteria</option>
+              <option value="Coffee Shop">Coffee Shop</option>
+              <option value="French Restaurant">French Restaurant</option>
         </select>
 				<div className="panel-list-container">
  					<ol onClick={this.props.onAnimateMarker} className="panel-list">

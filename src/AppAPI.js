@@ -3,7 +3,7 @@ const FOURSQUARE_API = 'https://api.foursquare.com/v2/venues/search?';
 const LL = '41.384457,2.182452';
 const RADIUS = '250';
 // Number of results to return
-const LIMIT = '20';
+const LIMIT = '11';
 // The categories are: Bed & Breakfast, Coffee Shop and Museum
 const CATEGORY_ID = '4bf58dd8d48988d1f8931735,4bf58dd8d48988d1e0931735,4bf58dd8d48988d181941735';
 
