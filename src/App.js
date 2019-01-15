@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { renderToString } from 'react-dom/server';
 import * as AppAPI from './AppAPI'
+import InfoWindow from './InfoWindow.js'
 import './App.css';
 import Map from './Map.js';
 import PlacesPanel from './PlacesPanel.js';
@@ -52,24 +54,18 @@ class App extends Component {
   }
 
   // This function adds one infoWindow to each marker in the array.
-  // The content of the infoWindow is the title of the marker.
-  // TODO: Create an InfoWindow component that receives the following props:
-  // map and markers
+  // The content of the infoWindow is a <InfoWindow />
   createInfoWindows= (map) => {
     let markers = this.state.markers;
     let infoWindows = [];
 
     for (let i = 0; i < markers.length; i++) {
-      let contentString = '<div id="content">'+
-          '<p>'+markers[i].title+'</p>'+
-          '</div>';
+      let contentString = renderToString(<InfoWindow venue={this.state.response.venues[i]} />)
 
       let infowindow = new window.google.maps.InfoWindow({
         content: contentString
       });
 
-      // TODO: Maybe make an array of infowindows.
-      // infowindows.push(infowindow);
       markers[i].addListener('click', function() {
         infowindow.open(map, markers[i]);
       });
@@ -118,17 +114,10 @@ class App extends Component {
             zoom: 17
           }}
           onMapLoad={map => {
-            // Create all the markers in the map
+            // This is how I used to create all the markers and infoWindows
             //this.createMarkers(map);
             //this.createInfoWindows(map);
           }} />
-          {/* TODO: Here I should insert one InfoWindow component for each marker.
-            That means using the map method for this.state.markers or using a for.
-            Each InfoWindow component will do what createInfoWindows method
-            does (create the content, create the infoWindow and add it to
-            the marker). The content of each infoWindow will be the result of
-            calling a third party API, for example Foursquare.
-            */}
         </main>
       </div>
     );
