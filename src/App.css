@@ -66,3 +66,30 @@
 .place:hover {
   cursor: pointer;
 }
+
+/* Styles for the infowindow*/
+.contentHolder {
+  display: flex;
+  max-width: 400px;
+}
+
+.iconCol {
+  width: 20%;
+  padding: 10px;
+}
+
+.infoCol {
+  width: 80%;
+  text-align: left;
+  padding: 10px;
+}
+
+.iconContainer {
+  background-color: lightblue;
+  border-radius: 10px;
+  width: 64px;
+}
+
+.venueName h2 {
+  margin-top: 0;
+}
