@@ -61,6 +61,14 @@
 
 }
 
+.attribution-container {
+  padding: 0 40px;
+}
+
+.foursquare-logo {
+  max-width: 200px;
+}
+
 /* Styles for the Place*/
 .place {}
 .place:hover {

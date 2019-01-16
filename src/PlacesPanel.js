@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Place from './Place.js';
+import foursquare from './img/powered-by-foursquare-blue.png';
 
 class PlacesPanel extends Component {
   state = {
@@ -27,13 +28,18 @@ class PlacesPanel extends Component {
               <option value="French Restaurant">French Restaurant</option>
         </select>
 				<div className="panel-list-container">
- 					<ol onClick={this.props.onAnimateMarker} className="panel-list">
-   					{this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
-    					<li key={mk.title}>
-      					{<Place title={mk.title} place={mk} />}
-    					</li>
-    				))}
-  				</ol>
+          <div className="panel-list">
+ 					  <ol onClick={this.props.onAnimateMarker} className="panel-list">
+   					  {this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
+    					  <li key={mk.title}>
+      					  {<Place title={mk.title} place={mk} />}
+    					  </li>
+    				  ))}
+  				  </ol>
+          </div>
+          <div className="attribution-container">
+            <img className='foursquare-logo' src={foursquare} alt={'Powered by Foursquare'} />
+          </div>
 				</div>
       </div>
     )
