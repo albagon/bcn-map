@@ -15,7 +15,7 @@ class PlacesPanel extends Component {
 
   render() {
     return (
-      <div id="floating-panel">
+      <nav id="floating-panel">
         <h2 className="panel-title">Places to visit</h2>
         <p>Filter:</p>
         <select value={this.state.filter} onChange={this.updateFilter}>
@@ -29,19 +29,19 @@ class PlacesPanel extends Component {
         </select>
 				<div className="panel-list-container">
           <div className="panel-list">
- 					  <ol onClick={this.props.onAnimateMarker} className="panel-list">
+ 					  <ul onClick={this.props.onAnimateMarker} className="panel-list">
    					  {this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
     					  <li key={mk.title}>
       					  {<Place title={mk.title} place={mk} />}
     					  </li>
     				  ))}
-  				  </ol>
+  				  </ul>
           </div>
           <div className="attribution-container">
             <img className='foursquare-logo' src={foursquare} alt={'Powered by Foursquare'} />
           </div>
 				</div>
-      </div>
+      </nav>
     )
   }
 }

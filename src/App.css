@@ -1,10 +1,12 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 h1 {
   font-size: 30px;
   padding: 15px;
+  margin: 0;
 }
 
 .App-header {
@@ -12,10 +14,14 @@ h1 {
   height: 10%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   font-size: 17px;
   color: white;
+}
+
+.App-header-content {
+  width: 80%;
 }
 
 .error-container {
@@ -35,10 +41,11 @@ h1 {
 
 .App-main {
   background-color: pink;
-  height: 90vh;
+  width: 100%;
+  height: 92vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
@@ -49,20 +56,23 @@ h1 {
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. Some of this code is based on the examples
 * from the Google Support site. */
-#map {
+.map-container {
   background-color: white;
   height: 100%;
+  width: 80%;
 }
 
 /* Styles for the PlacesPanel*/
 #floating-panel {
+  color: black;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  width: 20%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
   z-index: 5;
   background-color: #fff;
-  padding: 10px;
-  border: 1px solid #999;
+  border-right: 1px solid #999;
   text-align: center;
   line-height: 30px;
 }
@@ -90,7 +100,9 @@ h1 {
 }
 
 /* Styles for the Place*/
-.place {}
+.place {
+
+}
 .place:hover {
   cursor: pointer;
 }

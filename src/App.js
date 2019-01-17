@@ -112,12 +112,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
         <header className="App-header">
-          <h1>Barcelona Map</h1>
-          <ErrorMsg error={this.state.error}>
-            <span className="error-message">Sorry, something went wrong and there are no places to display. Please try again or contact me at albatgonzalezm@gmail.com.</span>
-          </ErrorMsg>
+          <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
+          <div className="App-header-content">
+            <h1>Barcelona Map</h1>
+            <ErrorMsg error={this.state.error}>
+              <span className="error-message">Sorry, something went wrong and there are no places to display. Please try again or contact me at albatgonzalezm@gmail.com.</span>
+            </ErrorMsg>
+          </div>
         </header>
         <main className="App-main">
         <Map
