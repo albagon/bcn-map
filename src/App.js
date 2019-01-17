@@ -5,6 +5,7 @@ import InfoWindow from './InfoWindow.js'
 import './App.css';
 import Map from './Map.js';
 import PlacesPanel from './PlacesPanel.js';
+import ErrorMsg from './ErrorMsg.js';
 
 
 // Some of this code has been inspired by the Google Maps support site
@@ -13,7 +14,8 @@ class App extends Component {
   state = {
     markers : [],
     response : {},
-    infoWindows : []
+    infoWindows : [],
+    error : false
   }
 
   // This function will update all the markers.
@@ -89,6 +91,14 @@ class App extends Component {
     }
   }
 
+  showError = () => {
+    this.setState({ error: true });
+  }
+
+  hideError = () => {
+    this.setState({ error: false });
+  }
+
   componentDidMount() {
     AppAPI.getAll().then((response) => {
       // Important: We need to set the state before calling createMarkers
@@ -96,7 +106,7 @@ class App extends Component {
       this.createMarkers(window.myMap);
       let infoWindows = this.createInfoWindows(window.myMap);
       this.setState({ infoWindows });
-    })
+    }).catch(error => this.showError())
   }
 
   render() {
@@ -104,7 +114,10 @@ class App extends Component {
       <div className="App">
         <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
         <header className="App-header">
-          Barcelona Map
+          <h1>Barcelona Map</h1>
+          <ErrorMsg error={this.state.error}>
+            <span className="error-message">Sorry, something went wrong and there are no places to display. Please try again or contact me at albatgonzalezm@gmail.com.</span>
+          </ErrorMsg>
         </header>
         <main className="App-main">
         <Map
