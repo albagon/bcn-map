@@ -117,7 +117,7 @@ class App extends Component {
           <div className="App-header-content">
             <h1>Barcelona Map</h1>
             <ErrorMsg error={this.state.error}>
-              <span className="error-message">Sorry, something went wrong and there are no places to display. Please try again or contact me at albatgonzalezm@gmail.com.</span>
+              <span className="error-message">Sorry, something went wrong. Please try again or contact me at albatgonzalezm@gmail.com.</span>
             </ErrorMsg>
           </div>
         </header>

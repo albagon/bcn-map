@@ -17,16 +17,18 @@ class PlacesPanel extends Component {
     return (
       <nav id="floating-panel">
         <h2 className="panel-title">Places to visit</h2>
-        <p>Filter:</p>
-        <select value={this.state.filter} onChange={this.updateFilter}>
-              <option value="all" defaultValue>All places</option>
-              <option value="Art Museum">Art Museum</option>
-              <option value="Bakery">Bakery</option>
-              <option value="Bed & Breakfast">Bed & Breakfast</option>
-              <option value="Cafeteria">Cafeteria</option>
-              <option value="Coffee Shop">Coffee Shop</option>
-              <option value="French Restaurant">French Restaurant</option>
-        </select>
+        <div className="panel-filter-container">
+          <p>Filter:</p>
+          <select className="panel-select" value={this.state.filter} onChange={this.updateFilter}>
+                <option value="all" defaultValue>All places</option>
+                <option value="Art Museum">Art Museum</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Bed & Breakfast">Bed & Breakfast</option>
+                <option value="Cafeteria">Cafeteria</option>
+                <option value="Coffee Shop">Coffee Shop</option>
+                <option value="French Restaurant">French Restaurant</option>
+          </select>
+        </div>
 				<div className="panel-list-container">
           <div className="panel-list">
  					  <ul onClick={this.props.onAnimateMarker} className="panel-list">
