@@ -155,17 +155,22 @@
 
 /* Styles for the infowindow*/
 .contentHolder {
-  display: flex;
-  max-width: 400px;
+  display: block;
+  max-width: 200px;
+}
+
+.icon {
+  max-width: 50px;
 }
 
 .iconCol {
-  width: 20%;
-  padding: 10px;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
 }
 
 .infoCol {
-  width: 80%;
+  width: 100%;
   text-align: left;
   padding: 10px;
 }
@@ -173,12 +178,13 @@
 .iconContainer {
   background-color: #ff9800;
   border-radius: 10px;
-  width: 64px;
+  width: 100%;
 }
 
 .venueName h2 {
   margin-top: 0;
   text-transform: uppercase;
+  font-size: 1.5em;
 }
 
 .venueName a:link {
