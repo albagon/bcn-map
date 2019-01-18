@@ -3,12 +3,6 @@
   height: 100%;
 }
 
-h1 {
-  font-size: 30px;
-  padding: 15px 0;
-  margin: 0;
-}
-
 .App-header {
   background-color: #282c34;
   /*height: 10%;*/
@@ -22,6 +16,28 @@ h1 {
 
 .App-header-content {
   width: 80%;
+}
+
+.App-name-wrapper {
+  display: flex;
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.toggle-button:hover {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.App-name {
+  font-size: 30px;
+  padding: 15px 0;
+  margin: 0;
+  width: -webkit-fill-available;
 }
 
 .error-container {

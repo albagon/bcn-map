@@ -99,6 +99,16 @@ class App extends Component {
     this.setState({ error: false });
   }
 
+  togglePanel= () => {
+    console.log("toggle");
+    var x = document.getElementById("floating-panel");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
   componentDidMount() {
     AppAPI.getAll().then((response) => {
       // Important: We need to set the state before calling createMarkers
@@ -115,7 +125,10 @@ class App extends Component {
         <header className="App-header">
           <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
           <div className="App-header-content">
-            <h1>Barcelona Map</h1>
+            <div className="App-name-wrapper">
+              <button className="toggle-button" onClick={this.togglePanel}>&#9776;</button>
+              <h1 className="App-name">Barcelona Map</h1>
+            </div>
             <ErrorMsg error={this.state.error}>
               <span className="error-message">Sorry, something went wrong. Please try again or contact me at albatgonzalezm@gmail.com.</span>
             </ErrorMsg>
