@@ -8,6 +8,11 @@ class PlacesPanel extends Component {
     filter: ''
   }
 
+  navStyle = {
+    display: 'none'
+  };
+
+
   updateFilter = (e) => {
     this.props.onUpdateMarkers(e);
     this.setState({ filter: e.target.value})
@@ -15,7 +20,7 @@ class PlacesPanel extends Component {
 
   render() {
     return (
-      <nav id="floating-panel">
+      <nav id="floating-panel" style={this.navStyle}>
         <h2 className="panel-title">Places to visit</h2>
         <div className="panel-filter-container">
           <p>Filter:</p>

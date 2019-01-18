@@ -9,7 +9,7 @@ import ErrorMsg from './ErrorMsg.js';
 
 
 // Some of this code has been inspired by the Google Maps support site
-// and stackoverflow.com
+// stackoverflow.com and w3schools.com
 class App extends Component {
   state = {
     markers : [],
@@ -101,9 +101,15 @@ class App extends Component {
 
   togglePanel= () => {
     var x = document.getElementById("floating-panel");
+    var t = document.getElementById("tb");
     if (x.style.display === "none") {
+      t.innerHTML = "&times;";
+      t.style.color = "black";
+      t.style.fontSize = "2.4em";
       x.style.display = "block";
     } else {
+      t.innerHTML = "&#9776;";
+      t.style.color = "white";
       x.style.display = "none";
     }
   }
@@ -125,7 +131,7 @@ class App extends Component {
           <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
           <div className="App-header-content">
             <div className="App-name-wrapper">
-              <button className="toggle-button" onClick={this.togglePanel}>&#9776;</button>
+              <button className="toggle-button" onClick={this.togglePanel} id="tb" aria-label="Toggle Navigation Bar">&#9776;</button>
               <h1 className="App-name">Barcelona Map</h1>
             </div>
             <ErrorMsg error={this.state.error}>
@@ -138,7 +144,7 @@ class App extends Component {
           id="map"
           options={{
             center: { lat: 41.384457, lng: 2.182452 },
-            zoom: 17
+            zoom: 15
           }}
           onMapLoad={map => {
             // This is how I used to create all the markers and infoWindows

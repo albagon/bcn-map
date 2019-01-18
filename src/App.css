@@ -5,17 +5,16 @@
 
 .App-header {
   background-color: #282c34;
-  /*height: 10%;*/
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  font-size: 17px;
+  font-size: 14px;
   color: white;
 }
 
 .App-header-content {
-  width: 80%;
+  width: 100%;
 }
 
 .App-name-wrapper {
@@ -26,7 +25,11 @@
   background: transparent;
   border: none;
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  z-index: 5;
 }
 
 .toggle-button:hover {
@@ -34,7 +37,7 @@
 }
 
 .App-name {
-  font-size: 30px;
+  font-size: 1.4em;
   padding: 15px 0;
   margin: 0;
   width: -webkit-fill-available;
@@ -76,20 +79,21 @@
 .map-container {
   background-color: white;
   height: 91vh;
-  width: 80%;
+  width: 100%;
 }
 
 /* Styles for the PlacesPanel*/
 #floating-panel {
+  display: none;
   color: black;
   position: absolute;
-  width: 20%;
+  width: 270px;
   height: 100%;
   top: 0px;
   left: 0px;
   z-index: 5;
   background-color: #fff;
-  /*border-right: 1px solid #999;*/
+  border: 1px solid #999;
   text-align: center;
   line-height: 30px;
   overflow: scroll;
@@ -123,7 +127,6 @@
 }
 
 .panel-list-container {
-  text-align: left;
   padding: 0px 20px 10px;
 }
 
