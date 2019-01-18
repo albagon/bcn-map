@@ -152,11 +152,20 @@ h1 {
 }
 
 .iconContainer {
-  background-color: lightblue;
+  background-color: #ff9800;
   border-radius: 10px;
   width: 64px;
 }
 
 .venueName h2 {
   margin-top: 0;
+  text-transform: uppercase;
+}
+
+.venueName a:link {
+  color: #3F51B5;
+}
+
+.venueName a:visited {
+  color: #3F51B5;
 }
