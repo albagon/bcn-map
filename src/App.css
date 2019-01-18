@@ -26,11 +26,11 @@
   background: transparent;
   border: none;
   color: white;
+  font-size: 2em;
 }
 
 .toggle-button:hover {
   cursor: pointer;
-  font-size: 2em;
 }
 
 .App-name {

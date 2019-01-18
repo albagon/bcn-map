@@ -100,7 +100,6 @@ class App extends Component {
   }
 
   togglePanel= () => {
-    console.log("toggle");
     var x = document.getElementById("floating-panel");
     if (x.style.display === "none") {
       x.style.display = "block";
