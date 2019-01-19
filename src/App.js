@@ -136,7 +136,7 @@ class App extends Component {
               <button className="toggle-button" onClick={this.togglePanel} id="tb" aria-label="Toggle Navigation Bar">&#9776;</button>
               <h1 className="App-name">Barcelona Map</h1>
             </div>
-            <ErrorMsg error={this.state.error}>
+            <ErrorMsg error={this.state.error} role="alert">
               <span className="error-message">Sorry, something went wrong. Please try again or contact me at albatgonzalezm@gmail.com.</span>
             </ErrorMsg>
           </div>

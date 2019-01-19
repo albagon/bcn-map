@@ -36,7 +36,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div className="map-container" id={this.props.id} />
+      <div className="map-container" id={this.props.id} role="application"/>
     );
   }
 }
