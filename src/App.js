@@ -104,7 +104,7 @@ class App extends Component {
   togglePanel= () => {
     var x = document.getElementById("floating-panel");
     var t = document.getElementById("tb");
-    if (x.style.display === "none") {
+    if (x.style.display === "none" || x.style.display === "") {
       t.innerHTML = "&times;";
       t.style.color = "black";
       t.style.fontSize = "2.4em";
