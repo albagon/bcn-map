@@ -78,8 +78,10 @@ class App extends Component {
   }
 
   animateMarker= (event) => {
-    // Close floating panel
-    this.togglePanel();
+    // Close floating panel only when screen width is smaller than 600px
+    if(window.screen.width < 600) {
+      this.togglePanel();
+    }
     // Find the marker that should be animated
     for (var i = 0; i < this.state.markers.length; i++) {
       if (this.state.markers[i].title === event.target.title) {
