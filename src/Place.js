@@ -4,7 +4,7 @@ import './App.css';
 class Place extends Component {
   render() {
     return (
-      <div title={this.props.title} className="place">{this.props.place.title}</div>
+      <button title={this.props.title} className="place">{this.props.place.title}</button>
     )
   }
 }

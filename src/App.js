@@ -146,10 +146,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <button className="toggle-button" onClick={this.togglePanel} id="tb" aria-label="Toggle Navigation Bar">&#9776;</button>
           <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
           <div className="App-header-content" id="title">
             <div className="App-name-wrapper">
-              <button className="toggle-button" onClick={this.togglePanel} id="tb" aria-label="Toggle Navigation Bar">&#9776;</button>
+              {/* this used to be the place for the button */}
               <h1 className="App-name">Barcelona Map</h1>
             </div>
             <ErrorMsg error={this.state.error} role="alert">

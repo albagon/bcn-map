@@ -30,7 +30,7 @@
   position: absolute;
   top: 0px;
   left: 10px;
-  z-index: 5;
+  z-index: 6;
 }
 
 .toggle-button:hover {
@@ -141,6 +141,10 @@
   padding-inline-start: 0;
 }
 
+.panel-list li {
+  border-bottom: 1px solid #ececec;
+}
+
 .attribution-container {
   /*padding: 0 40px;*/
 }
@@ -151,9 +155,13 @@
 
 /* Styles for the Place*/
 .place {
-  border-bottom: 1px solid #ececec;
+  border: 0;
   padding: 10px 0;
+  text-transform: uppercase;
+  font-size: .875rem;
+  background-color: white;
 }
+
 .place:hover {
   cursor: pointer;
 }
@@ -201,19 +209,11 @@
 }
 
 @media only screen and (min-width: 600px) {
-  /* .App-header-content {
-    width: 63%;
-  }
-
-  .map-container {
-    width: 63%;
-  }
-
-  #floating-panel {
-    width: 37%;
-  } */
-
   .panel-list-container {
+    text-align: left;
+  }
+
+  .place {
     text-align: left;
   }
 }

@@ -19,7 +19,7 @@ class PlacesPanel extends Component {
         <h2 className="panel-title">Places to visit</h2>
         <div className="panel-filter-container">
           <p>Filter:</p>
-          <select className="panel-select" value={this.state.filter} onChange={this.updateFilter}>
+          <select className="panel-select" value={this.state.filter} onChange={this.updateFilter} tabIndex="0" aria-label="Filter venues">
                 <option value="all" defaultValue>All places</option>
                 <option value="Art Museum">Art Museum</option>
                 <option value="Bakery">Bakery</option>
@@ -31,7 +31,7 @@ class PlacesPanel extends Component {
         </div>
 				<div className="panel-list-container">
           <div className="panel-list">
- 					  <ul onClick={this.props.onAnimateMarker} className="panel-list">
+ 					  <ul className="panel-list" onClick={this.props.onAnimateMarker} >
    					  {this.props.markers.filter((m) => m.map === window.myMap).map((mk) => (
     					  <li key={mk.title}>
       					  {<Place title={mk.title} place={mk} />}
