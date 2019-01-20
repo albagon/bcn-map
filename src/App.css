@@ -145,9 +145,7 @@
   border-bottom: 1px solid #ececec;
 }
 
-.attribution-container {
-  /*padding: 0 40px;*/
-}
+.attribution-container {}
 
 .foursquare-logo {
   max-width: 100%;
@@ -208,6 +206,7 @@
   color: #3F51B5;
 }
 
+/* This media query is for screens larger than mobiles */
 @media only screen and (min-width: 600px) {
   .panel-list-container {
     text-align: left;

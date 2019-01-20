@@ -8,7 +8,7 @@ import PlacesPanel from './PlacesPanel.js';
 import ErrorMsg from './ErrorMsg.js';
 
 
-// Some of this code has been inspired by the Google Maps support site
+// Some of this code has been inspired by the Google Maps support site,
 // stackoverflow.com and w3schools.com
 class App extends Component {
   state = {
@@ -150,7 +150,6 @@ class App extends Component {
           <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
           <div className="App-header-content" id="title">
             <div className="App-name-wrapper">
-              {/* this used to be the place for the button */}
               <h1 className="App-name">Barcelona Map</h1>
             </div>
             <ErrorMsg error={this.state.error} role="alert">
