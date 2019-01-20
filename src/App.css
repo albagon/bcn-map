@@ -41,7 +41,7 @@
   font-size: 1.4em;
   padding: 15px 0;
   margin: 0;
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 .error-container {
