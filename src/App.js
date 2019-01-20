@@ -104,15 +104,29 @@ class App extends Component {
   togglePanel= () => {
     var x = document.getElementById("floating-panel");
     var t = document.getElementById("tb");
+    var h = document.getElementById("title");
+    var m = document.getElementById("map");
     if (x.style.display === "none" || x.style.display === "") {
       t.innerHTML = "&times;";
       t.style.color = "black";
       t.style.fontSize = "2.4em";
       x.style.display = "block";
+      // Change the widths of the map and the panel if the screen
+      // size is equal or bigger than 600px
+      if(window.screen.width >= 600) {
+        h.style.width = "calc(100% - 270px)";
+        m.style.width = "calc(100% - 270px)";
+      }
     } else {
       t.innerHTML = "&#9776;";
       t.style.color = "white";
       x.style.display = "none";
+      // Change the widths of the map and the panel if the screen
+      // size is equal or bigger than 600px
+      if(window.screen.width >= 600) {
+        h.style.width = "100%";
+        m.style.width = "100%";
+      }
     }
   }
 
@@ -131,7 +145,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <PlacesPanel onAnimateMarker={this.animateMarker} onUpdateMarkers={this.updateMarkers} markers={this.state.markers}/>
-          <div className="App-header-content">
+          <div className="App-header-content" id="title">
             <div className="App-name-wrapper">
               <button className="toggle-button" onClick={this.togglePanel} id="tb" aria-label="Toggle Navigation Bar">&#9776;</button>
               <h1 className="App-name">Barcelona Map</h1>
