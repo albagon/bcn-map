@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Barcelona Map App
 
-## Available Scripts
+*Barcelona Map App* is a single-page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It features a map of "El Born" – one of the most trendy neighborhoods in Barcelona – as well as a set of markers to identify popular venues to visit. The map funcionality is provided by [Google Maps](https://developers.google.com/maps/documentation/) API.
 
-In the project directory, you can run:
+## Functionality
 
-### `npm start`
+To facilitate the browsing of the locations, the user can toggle a panel with a list of the available venues and a filter for the locations. The filters are:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- All places
+- Art Museum
+- Bakery
+- Bed & Breakfast
+- Cafeteria
+- Coffee Shop
+- French Restaurant
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Additional information about each of the locations can be displayed by clicking on a list item or a marker. This information is provided by [Foursquare](https://foursquare.com/) API.
 
-### `npm test`
+When available in the browser, the app uses a service worker to cache responses to requests for site assets. Visited pages are rendered when there is no network access.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+From your console, clone the GitHub repository:
+```sh
+git clone https://github.com/albagon/bcn-map.git
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Install all project dependencies with:
+```sh
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Now start the server and run the app in the development mode. This will automatically open `http://localhost:3000/` in your browser. The page will reload if you make edits and any lint errors will be logged in the console:
+```sh
+npm start
+```
 
-### `npm run eject`
+Build the app for production. This correctly bundles React in production mode and optimizes the build for the best performance:
+```sh
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app is ready to be deployed!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For more information about *deployment*, please visit [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This repository is the result of my final project for [Udacity](https://www.udacity.com/)'s Front-End Developer Nanodegree. Therefore, all contributions are welcome.
 
-## Learn More
+For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+_Barcelona Map App_ is distributed under the [MIT license](LICENSE).
