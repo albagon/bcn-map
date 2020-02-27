@@ -1,6 +1,6 @@
 # Barcelona Map App
 
-*Barcelona Map App* is a single-page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It features a map of "El Born" – one of the most trendy neighborhoods in Barcelona – as well as a set of markers to identify popular venues to visit. The map funcionality is provided by [Google Maps](https://developers.google.com/maps/documentation/) API.
+*Barcelona Map App* is a single-page application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It features a map of "El Born" – one of the most trendy neighbourhoods in Barcelona – as well as a set of markers to identify popular venues to visit. The map functionality is provided by [Google Maps](https://developers.google.com/maps/documentation/) API.
 
 ## Functionality
 
